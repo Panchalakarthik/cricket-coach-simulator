@@ -1,0 +1,32 @@
+name: coach_app
+description: Cricket Coach Simulator — Coach App
+version: 1.0.0+1
+publish_to: none
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.5.1
+  riverpod_annotation: ^2.3.5
+  go_router: ^14.0.0
+  dio: ^5.4.3
+  shared_preferences: ^2.2.3
+  flutter_secure_storage: ^9.0.0
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.4.9
+  riverpod_generator: ^2.4.0
+  json_serializable: ^6.7.1
+  flutter_lints: ^4.0.0
+  mocktail: ^1.0.3
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/audio/
