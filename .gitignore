@@ -1,0 +1,33 @@
+# Environment
+.env
+.env.local
+docker-compose.override.yml
+
+# Go
+services/api-go/bin/
+services/api-go/*.exe
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+services/ai-service/.venv/
+
+# Flutter
+apps/coach-app/.dart_tool/
+apps/coach-app/build/
+apps/coach-app/.flutter-plugins
+apps/coach-app/.flutter-plugins-dependencies
+
+# Node
+apps/admin-portal/node_modules/
+apps/admin-portal/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
