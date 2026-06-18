@@ -1,0 +1,33 @@
+name: Coach App CI
+
+on:
+  push:
+    paths:
+      - "apps/coach-app/**"
+      - ".github/workflows/coach-app.yml"
+  pull_request:
+    paths:
+      - "apps/coach-app/**"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/coach-app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.22.0"
+          channel: stable
+
+      - name: Get deps
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Test
+        run: flutter test
