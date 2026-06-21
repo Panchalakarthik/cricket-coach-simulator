@@ -228,7 +228,7 @@ class _TeamCard extends StatelessWidget {
                   color: team.colorDim,
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
-                    color: team.color.withValues(alpha: 0.5),
+                    color: team.color.withOpacity(0.5),
                   ),
                 ),
                 child: Center(

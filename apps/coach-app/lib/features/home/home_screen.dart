@@ -7,7 +7,7 @@ import 'widgets/season_journey_card.dart';
 import 'widgets/leaderboard_card.dart';
 
 // TODO: Replace with real providers loading from API
-final _mockHasActiveMatch = true;
+const _mockHasActiveMatch = true;
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -56,7 +56,7 @@ class _CoachHeader extends StatelessWidget {
               decoration: BoxDecoration(
                 color: kSurfaceElevated,
                 borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: kTeal.withValues(alpha: 0.3)),
+                border: Border.all(color: kTeal.withOpacity(0.3)),
               ),
               child: const Center(
                 child: Text(

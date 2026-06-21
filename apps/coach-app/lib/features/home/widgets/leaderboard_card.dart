@@ -238,7 +238,7 @@ class _PulsePainter extends CustomPainter {
         ..shader = LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [kTeal.withValues(alpha: 0.25), kTeal.withValues(alpha: 0.0)],
+          colors: [kTeal.withOpacity(0.25), kTeal.withOpacity(0.0)],
         ).createShader(Rect.fromLTWH(0, 0, size.width, size.height)),
     );
 

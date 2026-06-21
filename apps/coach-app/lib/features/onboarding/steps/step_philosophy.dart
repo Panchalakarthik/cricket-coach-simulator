@@ -166,7 +166,7 @@ class _PhilosophyCard extends StatelessWidget {
                 philosophy.tagline,
                 style: TextStyle(
                   color: selected
-                      ? philosophy.accent.withValues(alpha: 0.8)
+                      ? philosophy.accent.withOpacity(0.8)
                       : kTextSecondary,
                   fontSize: 11,
                   fontWeight: FontWeight.w500,

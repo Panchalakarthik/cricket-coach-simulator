@@ -49,7 +49,7 @@ class LiveMatchHero extends StatelessWidget {
       decoration: BoxDecoration(
         color: kSurface,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: kLive.withValues(alpha: 0.4), width: 1),
+        border: Border.all(color: kLive.withOpacity(0.4), width: 1),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -181,7 +181,7 @@ class LiveMatchHero extends StatelessWidget {
         decoration: BoxDecoration(
           color: kGoldDim,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: kGold.withValues(alpha: 0.3)),
+          border: Border.all(color: kGold.withOpacity(0.3)),
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,

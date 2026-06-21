@@ -77,7 +77,7 @@ class _RevealStepState extends State<RevealStep>
                   borderRadius: BorderRadius.circular(24),
                   boxShadow: [
                     BoxShadow(
-                      color: kTeal.withValues(alpha: 0.3),
+                      color: kTeal.withOpacity(0.3),
                       blurRadius: 24,
                       spreadRadius: 2,
                     ),
@@ -99,7 +99,7 @@ class _RevealStepState extends State<RevealStep>
               decoration: BoxDecoration(
                 color: kTealDim,
                 borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: kTeal.withValues(alpha: 0.4)),
+                border: Border.all(color: kTeal.withOpacity(0.4)),
               ),
               child: Text(
                 widget.data.philosophyLabel ?? 'The Balanced Leader',
@@ -191,9 +191,9 @@ class _DnaChip extends StatelessWidget {
   Widget build(BuildContext context) => Container(
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
         decoration: BoxDecoration(
-          color: color.withValues(alpha: 0.1),
+          color: color.withOpacity(0.1),
           borderRadius: BorderRadius.circular(16),
-          border: Border.all(color: color.withValues(alpha: 0.3)),
+          border: Border.all(color: color.withOpacity(0.3)),
         ),
         child: Text(
           label,
