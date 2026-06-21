@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/auth/auth_notifier.dart';
+import 'core/theme/app_colors.dart';
 import 'features/auth/login_screen.dart';
 import 'features/home/home_screen.dart';
+import 'features/onboarding/onboarding_screen.dart';
+
+// TODO: Wire to real API — true when coach profile is incomplete after sign-up
+final _needsOnboardingProvider = StateProvider<bool>((ref) => false);
 
 class CoachApp extends ConsumerWidget {
   const CoachApp({super.key});
@@ -10,23 +15,27 @@ class CoachApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final auth = ref.watch(authProvider);
+    final needsOnboarding = ref.watch(_needsOnboardingProvider);
 
     Widget home = switch (auth.status) {
-      AuthStatus.authenticated => const HomeScreen(),
       AuthStatus.unauthenticated => const LoginScreen(),
+      AuthStatus.authenticated when needsOnboarding => OnboardingScreen(
+          onComplete: () =>
+              ref.read(_needsOnboardingProvider.notifier).state = false,
+        ),
+      AuthStatus.authenticated => const HomeScreen(),
       AuthStatus.unknown => const Scaffold(
-          body: Center(child: CircularProgressIndicator())),
+          backgroundColor: kBackground,
+          body: Center(
+            child: CircularProgressIndicator(color: kTeal),
+          ),
+        ),
     };
 
     return MaterialApp(
-      title: 'Cricket Coach Simulator',
+      title: 'CricCoach',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark(useMaterial3: true).copyWith(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFF7B2FBE),
-          brightness: Brightness.dark,
-        ),
-      ),
+      theme: buildAppTheme(),
       home: home,
     );
   }
